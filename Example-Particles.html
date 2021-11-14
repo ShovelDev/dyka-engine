@@ -1,0 +1,25 @@
+<body>
+	<script src="dyka.js"></script>
+
+	<script type="text/javascript">
+		initDyka()
+
+		var particles = []
+		var num_particles = 50
+		
+		function loop(){
+			Dyka.update(loop)
+
+			//gerador
+			for (var i = 0; i < num_particles; i++){
+    			particles.push(new Dyka.particle(40, 40, "red", 5));
+			}
+
+			//desenha as particulas geradas
+			for (var i = 0; i < num_particles; i++) {
+		        particles[i].animate();
+		    }
+		}
+		loop()
+	</script>
+</body>

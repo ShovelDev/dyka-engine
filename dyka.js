@@ -75,9 +75,29 @@ const enginecode = function(){
 		},
 	}
 
-	// TOOLS
-	this.tools = {
+	// PARTICLES
+	this.particle = function(x, y, color="red", gravity=0){
+		this.x = x
+		this.y = y
+		this.vx = 4 * Math.random() - 2;
+		this.vy = 4 * Math.random() - 2;
+		this.Color = color
+		this.life = 70
+		this.gravity = gravity
 
+		this.animate = function(){
+			this.x += this.vx;
+		    this.y += this.vy + this.gravity;
+		    this.life --
+
+			if (this.life > 0) {
+				ctx.save()
+				ctx.beginPath()
+				ctx.fillStyle = this.Color;
+	    		ctx.fillRect(this.x, this.y, 2, 2);
+	    		ctx.restore()
+			}
+		}
 	}
 
 	// MEMORY
@@ -165,6 +185,21 @@ const enginecode = function(){
 			   		return true
 			   	}
 			}
+		}
+	}
+
+	// TOOLS
+	this.tools = {
+		randomColor:  ()=>{
+		    var r = 0, g = 0, b = 0;
+		    while (r < 100 && g < 100 && b < 100)
+		    {
+		        r = Math.floor(Math.random() * 256);
+		        g = Math.floor(Math.random() * 256);
+		        b = Math.floor(Math.random() * 256);
+		    }
+		 
+		    return "rgb(" + r + "," + g + ","  + b + ")";
 		}
 	}
 }
