@@ -2,7 +2,7 @@
 	DykaEngine 1.2
 	12/11/2021
 
-	Visite dykaengine.weebly.com para saber mais.
+	Visite https://dykaengine.netlify.app/ para saber mais.
 */
 
 var game;
